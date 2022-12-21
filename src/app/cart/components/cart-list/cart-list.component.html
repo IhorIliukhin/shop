@@ -1,0 +1,15 @@
+<div *ngIf="cartItems.length; else empthyCart">
+    <h2 class="header">Cart</h2>
+
+    <ol>
+        <li *ngFor="let item of cartItems; trackBy: trackByItems">
+            <h3>{{item.brand}}</h3>
+            <p>Model: {{item.model}}</p>
+            <p>Price: {{item.price | currency}}</p>
+        </li>
+    </ol>
+</div>
+
+<ng-template #empthyCart>
+    Your cart is empty!
+</ng-template>
