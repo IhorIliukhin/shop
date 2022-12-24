@@ -13,7 +13,7 @@ export class CartService {
     return this.cartItems;
   }
 
-  addItem(...item: ProductModel[]): void {
-    this.cartItems.push(...item);
+  addItem(...items: ProductModel[]): void {
+    this.cartItems.push(...items);
   }
 }
