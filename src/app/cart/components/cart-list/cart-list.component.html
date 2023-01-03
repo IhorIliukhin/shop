@@ -1,15 +1,31 @@
 <div *ngIf="cartItems.length; else empthyCart">
-    <h2 class="header">Cart</h2>
+    <h2 class="text-center text-xl font-bold mt-4">Cart</h2>
 
-    <ol>
-        <li *ngFor="let item of cartItems; trackBy: trackByItems">
-            <h3>{{item.brand}}</h3>
-            <p>Model: {{item.model}}</p>
-            <p>Price: {{item.price | currency}}</p>
+    <ol class="flex justify-evenly flex-wrap my-5">
+        <li *ngFor="let item of cartItems; trackBy: trackByItems" class="basis-1/5">
+            <app-cart-item
+                [cartItem]="item"
+                (deleteItem)="onDeleteItem($event)"
+            ></app-cart-item>
         </li>
     </ol>
+
+    <div class="text-right mr-5">
+        <p>Total Cost: {{cartService.totalCost()}}</p>
+        <p>Total Quantity: {{cartService.totalQuantity()}}</p>
+    </div>
 </div>
 
 <ng-template #empthyCart>
-    Your cart is empty!
+    <p class="text-center text-xl font-bold mt-4">Your cart is empty!</p>
 </ng-template>
+
+<div class="text-center mt-10">
+    <button
+        mat-raised-button
+        color="primary"
+        >
+        
+        <a routerLink="/products">Go to Products</a> 
+    </button>
+</div>
