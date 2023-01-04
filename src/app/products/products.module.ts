@@ -19,9 +19,6 @@ import { RouterModule } from '@angular/router';
     SharedModule,
     RouterModule
   ],
-  providers: [
-    ProductService
-  ],
   exports: [
     ProductListComponent
   ]

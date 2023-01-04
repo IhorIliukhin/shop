@@ -20,7 +20,7 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
     this.products = this.productService.getProducts();
-    this.isCartEmpthy = !!!this.cartService.getCartItems().length;
+    this.isCartEmpthy = !this.cartService.getCartItems().length;
   }
 
   onAddToCart(product: ProductModel): void {
