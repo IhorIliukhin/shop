@@ -20,6 +20,7 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
     this.products = this.productService.getProducts();
+    // интересный подход, а одного знака ! не достаточно?
     this.isCartEmpthy = !!!this.cartService.getCartItems().length;
   }
 

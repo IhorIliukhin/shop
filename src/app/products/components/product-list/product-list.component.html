@@ -1,5 +1,6 @@
 <div class="flex justify-evenly flex-wrap relative">
-    <ng-container *ngFor="let product of products">
+  <!-- Почему *ngFor нельзя добавить на app-product? -->
+  <ng-container *ngFor="let product of products">
         <app-product
             class="basis-1/3"
             [product]="product"
@@ -9,7 +10,7 @@
 </div>
 
 <div class="absolute right-1 top-2">
-    <button 
+    <button
         [matTooltip]="'tooltip'"
         mat-fab extended
         color="primary">
