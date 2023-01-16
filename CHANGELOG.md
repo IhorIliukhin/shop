@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.0.3] - 2023-01-14
+
+### Added
+
+- ConfigOprionService for setting and getting configuration data;
+- ConstantsService (token) with predifined data;
+- GeneratorService for random characters/number and(or) numbers generation;
+- GeneratorFactory funtion which uses GeneratorService;
+- LocalStorageService for interaction with localStorage;
+- All new services injected in FirstComponent as optional dependencies;
+- ClickDirective for changin UI on button click;
+- DeleteAll feature in Cart with modal window;
+
+### Changed
+
+- CartService refactored & extended with immutable approach;
+
+
 ## [0.0.2] - 2023-01-03
 
 ### Added

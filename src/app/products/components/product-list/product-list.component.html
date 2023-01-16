@@ -1,25 +1,27 @@
 <div class="flex justify-evenly flex-wrap relative">
-    <app-product 
+    <app-product
         *ngFor="let product of products"
         class="basis-1/3"
         [product]="product"
         (addToCart)="onAddToCart($event)"
+        (deleteFromCart)="onDeleteFromCart($event)"
     ></app-product>
 </div>
 
-<div class="absolute right-1 top-2">
-    <button 
-        [matTooltip]="'tooltip'"
-        mat-fab extended
-        color="primary">
-
-        <a routerLink="/cart">
-            Go to Cart
-        </a>
+<div class="absolute right-1 top-2" [matTooltip]="cartTooltip">
+    <button
+        [disabled]="isCartEmpthy"
+        mat-fab
+        color="primary"
+        routerLink="/cart">
 
         <mat-icon>
             shopping_cart
         </mat-icon>
 
+        <mat-icon>
+            chevron_right
+        </mat-icon>
+        
     </button>
 </div>

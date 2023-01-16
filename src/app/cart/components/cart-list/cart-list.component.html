@@ -6,13 +6,26 @@
             <app-cart-item
                 [cartItem]="item"
                 (deleteItem)="onDeleteItem($event)"
+                (quantityIncrease)="onQuantityIncrease($event)"
+                (quantityDecrease)="onQuantityDecrease($event)"
             ></app-cart-item>
         </li>
     </ol>
 
     <div class="text-right mr-5">
-        <p>Total Cost: {{cartService.totalCost()}}</p>
-        <p>Total Quantity: {{cartService.totalQuantity()}}</p>
+        <button 
+            class="my-3" 
+            mat-fab color="warn" 
+            matTooltip="Remove all"
+            (click)="openDialog()">
+
+            <mat-icon>
+                delete_forever
+            </mat-icon>
+        </button>
+
+        <p>Total Cost: {{cartService.totalCost | currency}}</p>
+        <p>Total Quantity: {{cartService.totalQuantity}}</p>
     </div>
 </div>
 
@@ -20,12 +33,14 @@
     <p class="text-center text-xl font-bold mt-4">Your cart is empty!</p>
 </ng-template>
 
-<div class="text-center mt-10">
+<div class="absolute left-2 top-2">
     <button
-        mat-raised-button
+        mat-mini-fab
         color="primary"
-        >
+        routerLink="/products">
         
-        <a routerLink="/products">Go to Products</a> 
+        <mat-icon>
+            arrow_back
+        </mat-icon>
     </button>
 </div>

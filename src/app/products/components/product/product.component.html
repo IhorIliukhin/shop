@@ -1,7 +1,7 @@
-<mat-card class="m-5">
+<mat-card class="m-5 transition-all">
   <mat-card-header class="justify-between">
     <mat-card-title>
-      <h1 class="text-xl">{{product.brand}}</h1>
+      <h2>{{product.brand}}</h2>
     </mat-card-title>
 
     <mat-card-subtitle>
@@ -9,7 +9,8 @@
     </mat-card-subtitle>
 
     <div [matTooltip]="getTooltip()">
-      <button 
+      <button  
+        [appClick]="!product.isInCart"
         mat-fab
         color="primary"
         class="w-full"
@@ -24,8 +25,24 @@
     </div>
   </mat-card-header>
 
-  <mat-card-content class="my-5">
-      <p>Model: {{product.model}}</p>
-      <p class="mt-2">Price: {{product.price | currency}}</p>
+  <mat-card-content class="my-5 flex justify-between">
+    <div class="flex justify-between items-center">
+      <div>
+        <p>Model: {{product.model}}</p>
+        <p class="mt-2">Price: {{product.price | currency}}</p>
+      </div>
+
+      <button *ngIf="showDeleteButton" 
+        [appClick]="product.isInCart"
+        mat-mini-fab
+        color="warn"
+        (click)="onDeleteFromCart()"
+        >
+
+        <mat-icon>
+          delete
+        </mat-icon>
+      </button>
+    </div>
   </mat-card-content>
 </mat-card>

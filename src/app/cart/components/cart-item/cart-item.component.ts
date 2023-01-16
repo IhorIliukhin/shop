@@ -10,14 +10,17 @@ import { CartModel } from '../../models/cart-model';
 export class CartItemComponent {
 
   @Input() cartItem!: CartModel;
-  @Output() deleteItem: EventEmitter<CartModel> = new EventEmitter();
+
+  @Output() deleteItem = new EventEmitter<CartModel>();
+  @Output() quantityIncrease = new EventEmitter<CartModel>();
+  @Output() quantityDecrease = new EventEmitter<CartModel>();
 
   onQuantityIncrease(): void {
-    this.cartItem.quantity+=1;
+    this.quantityIncrease.emit(this.cartItem);
   }
 
   onQuantityDecrease(): void {
-    this.cartItem.quantity-=1;
+    this.quantityDecrease.emit(this.cartItem);
   }
 
   onDeleteItem(): void {
