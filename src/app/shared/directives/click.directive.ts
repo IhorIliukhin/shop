@@ -24,10 +24,12 @@ export class ClickDirective implements AfterViewChecked {
   increase(): void {
     this.renderer.setStyle(this.element.nativeElement.offsetParent, 'fontSize', '18px');
     this.renderer.setStyle(this.element.nativeElement.offsetParent, 'fontWeight', '500');
+    this.renderer.setStyle(this.element.nativeElement.offsetParent, 'color', 'white');
+    this.renderer.setStyle(this.element.nativeElement.offsetParent, 'borderRadius', '20px');
     this.renderer.setStyle(this.element.nativeElement.offsetParent, 'letterSpacing', '1px');
     this.renderer.setStyle(this.element.nativeElement.offsetParent, 'margin', '0');
     this.renderer.setStyle(this.element.nativeElement.offsetParent, 'padding', '1rem');
-    this.renderer.setStyle(this.element.nativeElement.offsetParent, 'background', '#ebe7ff');
+    this.renderer.setStyle(this.element.nativeElement.offsetParent, 'background', 'linear-gradient(20deg, rgb(172, 77, 199), rgb(102, 0, 255))');
   }
 
   decrease(): void {

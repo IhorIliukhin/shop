@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 
+import { Observable, of } from 'rxjs';
+
 import { products } from '../models/products';
 import { ProductModel } from '../models/product-model';
 
@@ -10,8 +12,8 @@ export class ProductService {
 
   products = products;
 
-  getProducts(): ProductModel[] {
-    return this.products;
+  getProducts(): Observable<ProductModel[]> {
+    return of(this.products);
   }
 
   removeFromCart(product: ProductModel): void {
@@ -23,6 +25,6 @@ export class ProductService {
   }
 
   removeAllFromCart(): void {
-    this.getProducts().forEach(el => el.isInCart = false);
+    this.products.forEach(el => el.isInCart = false);
   }
 }

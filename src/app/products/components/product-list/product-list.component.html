@@ -1,6 +1,6 @@
 <div class="flex justify-evenly flex-wrap relative">
     <app-product
-        *ngFor="let product of products"
+        *ngFor="let product of (productService.getProducts() | async)"
         class="basis-1/3"
         [product]="product"
         (addToCart)="onAddToCart($event)"

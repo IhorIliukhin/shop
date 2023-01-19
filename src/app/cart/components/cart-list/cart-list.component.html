@@ -2,7 +2,7 @@
     <h2 class="text-center text-xl font-bold mt-4">Cart</h2>
 
     <ol class="flex justify-evenly flex-wrap my-5">
-        <li *ngFor="let item of cartItems; trackBy: trackByItems" class="basis-1/5">
+        <li *ngFor="let item of cartItems | orderBy: selectedSorting: isAscending; trackBy: trackByItems" class="basis-1/5">
             <app-cart-item
                 [cartItem]="item"
                 (deleteItem)="onDeleteItem($event)"
@@ -25,7 +25,25 @@
         </button>
 
         <p>Total Cost: {{cartService.totalCost | currency}}</p>
-        <p>Total Quantity: {{cartService.totalQuantity}}</p>
+        <p>Total Quantity: {{cartService.totalQuantity | i18nPlural: pluralMapping}}</p>
+    </div>
+
+    <div class="absolute right-3 top-36 flex flex-col items-end">
+        <mat-form-field appearance="fill" class="w-2/3">
+            <mat-label>Sort option</mat-label>
+            <mat-select [(ngModel)]="selectedSorting">
+                <mat-option 
+                    *ngFor="let item of sortOptions | keyvalue"
+                    [value]="item.key"
+                    >{{item.value}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-checkbox color="primary" 
+            [(ngModel)]="isAscending"
+            >Ascending
+        </mat-checkbox>
     </div>
 </div>
 

@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.0.4] - 2023-01-19
+
+### Added
+
+- Pipes in :
+    - CartListComponent:
+        - orderBy for sorting cartItems, currency for Total Cost of cartItems; 
+        - i18nPlural for Total Quantity of cartItems;
+        - keyvalue for iteration of sortOptions in mat-select;
+    
+    - ProductListComponent:
+        - async pipe for view products;
+
+    - FirstComponent:
+        - json pipe for view object in template;
+
 ## [0.0.3] - 2023-01-14
 
 ### Added

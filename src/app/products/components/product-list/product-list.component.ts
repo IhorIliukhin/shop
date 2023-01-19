@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { CartModel } from 'src/app/cart/models/cart-model';
 import { CartService } from 'src/app/cart/services/cart.service';
-
 import { ProductModel } from 'src/app/products/models/product-model';
 import { ProductService } from 'src/app/products/services/product.service';
 
@@ -19,12 +19,11 @@ export class ProductListComponent implements OnInit {
   }
 
   constructor(
-    private productService: ProductService,
+    public productService: ProductService,
     private cartService: CartService
   ) { }
 
   ngOnInit(): void {
-    this.products = this.productService.getProducts();
     this.isCartEmpthy = this.cartService.isEmptyCart;
   }
 

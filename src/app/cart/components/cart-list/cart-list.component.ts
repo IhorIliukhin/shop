@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { MatDialog } from '@angular/material/dialog';
 
 import { ProductModel } from 'src/app/products/models/product-model';
@@ -14,6 +15,11 @@ import { DeleteAllDialogComponent } from '../delete-all-dialog/delete-all-dialog
 export class CartListComponent implements OnInit {
 
   cartItems!: CartModel[];
+  pluralMapping = {'=1': '1 item', 'other': '# items'};
+  sortOptions = {price: 'Price', quantity: 'Quantity', brand: 'Name'};
+  
+  selectedSorting!: keyof CartModel;
+  isAscending = false;
 
   constructor(
     public cartService: CartService,

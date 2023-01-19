@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { CartListComponent } from './components/cart-list/cart-list.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
@@ -16,7 +15,6 @@ import { DeleteAllDialogComponent } from './components/delete-all-dialog/delete-
     DeleteAllDialogComponent
   ],
   imports: [
-    CommonModule,
     SharedModule,
     RouterModule
   ]

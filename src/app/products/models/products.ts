@@ -25,7 +25,7 @@ export const products: ProductModel[] = [
         model: 'MacBook',
         category: 'laptop',
         price: 1200,
-        isAvailable: false,
+        isAvailable: true,
         isInCart: false
     },
     {
@@ -52,6 +52,33 @@ export const products: ProductModel[] = [
         model: 'Creator',
         category: 'laptop',
         price: 1500,
+        isAvailable: true,
+        isInCart: false
+    },
+    {
+        id: 7,
+        brand: 'Samsung',
+        model: 'Galaxy',
+        category: 'laptop',
+        price: 900,
+        isAvailable: true,
+        isInCart: false
+    },
+    {
+        id: 8,
+        brand: 'Microsoft',
+        model: 'Surface',
+        category: 'laptop',
+        price: 2900,
+        isAvailable: true,
+        isInCart: false
+    },
+    {
+        id: 9,
+        brand: 'Xiaomi',
+        model: 'Redmi',
+        category: 'laptop',
+        price: 999,
         isAvailable: true,
         isInCart: false
     },
