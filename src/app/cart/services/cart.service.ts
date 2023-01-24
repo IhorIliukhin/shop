@@ -44,6 +44,7 @@ export class CartService {
 
   removeProduct(product: CartModel): void {
     let newCart = this.cartProducts.filter(el => el.id !== product.id);
+    // filter возвращает новый массив, нет необходимости его еще раз копировать.
     this.cartProducts = [...newCart];
   }
 

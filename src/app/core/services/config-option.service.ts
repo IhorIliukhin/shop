@@ -7,7 +7,7 @@ import { ConfigModel } from '../models/config-model';
 export class ConfigOptionService {
 
   private configuration!: ConfigModel;
-  
+
   getConfig(): ConfigModel {
     return this.configuration;
   }
@@ -16,7 +16,7 @@ export class ConfigOptionService {
     this.configuration = {...this.configuration, ...config};
   }
 
-  setConfigProperty(key: 'id' | 'login' | 'email', value: string): void {
+  setConfigProperty(key: keyof ConfigModel, value: string): void {
     this.configuration[key] = value;
   }
 }
