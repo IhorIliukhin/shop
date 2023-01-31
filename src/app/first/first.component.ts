@@ -12,12 +12,12 @@ import { LocalStorageService, localStorageServiceToken } from '../core/services/
   providers: [
     GeneratorService,
     { provide: INFORMATION, useValue: info },
-    { 
-      provide: generatedString, 
-      useFactory: GeneratorFactory(10), 
+    {
+      provide: generatedString,
+      useFactory: GeneratorFactory(10),
       deps: [GeneratorService]
     },
-    { 
+    {
       provide: localStorageServiceToken,
       useValue: new LocalStorageService()
     }
@@ -31,13 +31,13 @@ export class FirstComponent {
     @Optional() @Inject(INFORMATION) public info: InfoModel,
     @Optional() @Inject(generatedString) public generator: string,
     @Optional() public generatorService: GeneratorService,
-    @Optional() @Inject(localStorageServiceToken) public localStorageService: LocalStorageService
-  ) {}
+    @Optional() @Inject(localStorageServiceToken) public localStorageService: LocalStorageService,
+  ) { }
 
 
   test() {
     this.localStorageService.setItem('x', 'y');
-    this.configService.setConfig({id: '1', login: 'John', email: 'i@i.com'});
+    this.configService.setConfig({ id: '1', login: 'John', email: 'i@i.com' });
     this.configService.setConfigProperty('id', '2');
     this.configService.setConfigProperty('login', 'Smith');
     this.configService.setConfigProperty('email', 'y@y.com');

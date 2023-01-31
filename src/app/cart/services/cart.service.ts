@@ -43,8 +43,7 @@ export class CartService {
   }
 
   removeProduct(product: CartModel): void {
-    let newCart = this.cartProducts.filter(el => el.id !== product.id);
-    this.cartProducts = [...newCart];
+    this.cartProducts = this.cartProducts.filter(el => el.id !== product.id);
   }
 
   removeAllProducts(): void {
@@ -60,10 +59,13 @@ export class CartService {
   }
 
   private changeQuantity(product: CartModel, delta: number): void {
+    let {...updatedProduct} = product;
+    updatedProduct.quantity += delta;
+
     let updatedCart = this.cartProducts.map(el => {
       if(el.id === product.id) {
-        product.quantity += delta;
-        return product;
+        el = updatedProduct;
+        return el;
       }
       return el;
     });

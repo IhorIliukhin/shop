@@ -37,10 +37,12 @@ export class CartListComponent implements OnInit {
 
   onQuantityIncrease(product: CartModel): void {
     this.cartService.increaseQuantity(product);
+    this.initCartProducts();
   }
 
   onQuantityDecrease(product: CartModel): void {
     this.cartService.decreaseQuantity(product);
+    this.initCartProducts();
   }
 
   onDeleteItem(product: CartModel): void {
